@@ -1,0 +1,8 @@
+<?init class="org.zkoss.zk.ui.util.Composition" 
+       arg0="/WEB-INF/plantillas/plantilla.zul"?>
+<?script src="/js/bootstrap.min.js" ?>
+<?link rel="stylesheet" href="/css/bootstrap.min.css" ?>
+<zk>
+	<include self="@define(emisor)" src="/emisor.zul"/>
+	<include self="@define(receptor)" src="/receptor.zul"/>
+</zk>

@@ -1,0 +1,4 @@
+<window id="wndEmisor" title="Emisor" border="normal" apply="com.demo.EmisorComposer" >
+	<textbox id="txtEnvio" placeholder="Ingrese un texto..." />
+    <button id="btn" label="Enviar!" />
+</window>

@@ -1,0 +1,3 @@
+<window title="Receptor!" border="normal" apply="com.demo.ReceptorComposer">
+    <textbox id="txtRecepcion" multiline="true" hflex="1" height="200px"/>
+</window>

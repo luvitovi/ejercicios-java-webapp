@@ -1,0 +1,10 @@
+<zk>
+
+	<vlayout>
+	    <div self="@insert(emisor)" >
+	    </div>
+	    <div self="@insert(receptor)">
+	    </div>
+	</vlayout>
+	
+</zk>
