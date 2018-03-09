@@ -1,0 +1,16 @@
+<div hflex="1" vflex="1" >
+
+	<hlayout hflex="1" vflex="1" valign="middle">
+	
+		<!-- Este es un comentario -->
+		<image src="/img/logo.png" 
+		       width="70px" >
+		</image>
+		
+		<label sclass="banner">
+			Ejercicio 01
+		</label>
+				
+	</hlayout>
+
+</div>

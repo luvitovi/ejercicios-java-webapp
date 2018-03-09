@@ -1,0 +1,10 @@
+<vlayout hflex="1" vflex="1">
+	<hlayout>
+		<image src="/img/zklogo.png" /> 
+		<a href="http://www.zkoss.org">Sitio de ZK</a>
+	</hlayout>
+	<hlayout>
+		<image src="/img/zkdemo.png" /> 
+		<a href="http://www.zkoss.org/zkdemo">Sitio demo de ZK</a>
+	</hlayout>
+</vlayout>

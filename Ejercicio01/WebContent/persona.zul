@@ -1,0 +1,93 @@
+<window border="none">
+	<caption label="Datos de la persona" 
+	         style="font-weight:bold; font-size:medium; color:#636363; " />
+	<vlayout>
+		<grid>
+			<columns>
+				<column hflex="min" align="right" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<cell>Nombre:</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<label value="&#x1F464;"></label>
+				          </div>
+				        </div>
+				        <textbox hflex="1" />
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell>Cédula:</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<!-- Usa la tabla de caracteres de los EmoGi: http://www.unicode.org/emoji/charts/full-emoji-list.html -->
+				          		<label value="&#x1F194;"></label>
+				          </div>
+				        </div>
+				        <textbox />
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell>Email:</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<label value="&#x1F4EC;"></label>
+				          </div>
+				        </div>
+				        <textbox />
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell>Fecha de Nacimiento:</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<label value="&#x1F4C5;"></label>
+				          </div>
+				        </div>
+				        <datebox />
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell>Pais de Origen:</cell>
+					<cell>
+						<listbox mold="select" width="200px">
+							<listitem>
+								<listcell label="Ecuador" />
+							</listitem>
+							<listitem>
+								<listcell label="Colombia" />
+							</listitem>
+							<listitem>
+								<listcell label="Peru" />
+							</listitem>
+						</listbox>
+					 </cell>
+				</row>
+				<row>
+					<cell>Observaciones:</cell>
+					<cell> <textbox hflex="1" multiline="true" height="100px" /> </cell>
+				</row>				
+			</rows>
+		</grid>
+		
+		<hlayout>
+			<button label="Grabar" iconSclass="z-icon-save" sclass="btn btn-outline-success"/>
+			<button label="Cerrar" iconSclass="z-icon-sign-out" sclass="btn btn-outline-primary"/>
+		</hlayout>
+		
+	</vlayout>
+</window>
