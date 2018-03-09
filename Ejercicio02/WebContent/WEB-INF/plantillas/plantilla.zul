@@ -1,0 +1,6 @@
+<borderlayout hflex="1" vflex="1">
+	<north  self="@insert(banner)"  height="100px" border="none" />
+	<west   self="@insert(menu)"    width="260px" border="none" collapsible="true" splittable="true" minsize="300" />
+	<center self="@insert(content)" id="mainContent" autoscroll="true" />
+	<south  self="@insert(footer)"  height="70px" border="none" />
+</borderlayout>

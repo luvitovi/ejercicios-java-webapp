@@ -1,0 +1,10 @@
+<?init class="org.zkoss.zk.ui.util.Composition" 
+       arg0="/WEB-INF/plantillas/plantilla.zul"?>
+<?script src="/js/bootstrap.min.js" ?>
+<?link rel="stylesheet" href="/css/bootstrap.min.css" ?>
+<zk>
+	<include self="@define(banner)" src="/banner.zul"/>
+	<include self="@define(menu)" src="/menu.zul"/>
+	<include self="@define(content)" src="/persona.zul"/>
+	<include self="@define(footer)" src="/footer.zul"/>
+</zk>

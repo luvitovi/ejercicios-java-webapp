@@ -1,0 +1,9 @@
+<grid id="grMenu" 
+      apply="com.demo.control.Menu" 
+      hflex="1" vflex="1" sclass="border-0">
+	<columns>
+		<column width="70px"/>
+		<column/>
+	</columns>
+	<rows />
+</grid>

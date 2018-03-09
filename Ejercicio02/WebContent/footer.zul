@@ -1,0 +1,6 @@
+<div hflex="1" vflex="1" sclass="footer">
+	<vbox hflex="1" vflex="1" align="center">
+		Curso de Java Avanzado (Desarrollo de Aplicaciones Web con Java)
+		<a href="http://www.ecudesarrollo.com">EcuDesarrollo</a>
+	</vbox>
+</div>

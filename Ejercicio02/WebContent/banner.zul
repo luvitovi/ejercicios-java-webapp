@@ -1,0 +1,13 @@
+<div hflex="1" vflex="1">
+	<hbox hflex="1" vflex="1" align="center">
+		<a href="http://www.ecudesarrollo.com/">
+			<image src="/img/logo.png" width="90px" />
+		</a>
+		<div width="400px" >
+			<label value="Ejercicio 01" sclass="banner"/>
+		</div>
+		<hbox hflex="1" vflex="1" pack="end" align="end">
+			Usuario Anónimo
+		</hbox>
+	</hbox>
+</div>

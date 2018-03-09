@@ -1,0 +1,99 @@
+<window border="none" vflex="min" hflex="1" 
+        apply="com.demo.control.PersonaControl">
+	<caption src="/img/user.png" height="20px" style="font-weight: bold; font-size: medium; color: #636363;" label="Persona"/>
+	<vlayout>
+		<grid >
+			<columns>
+				<column align="right" hflex="min"/>
+				<column/>
+			</columns>
+			<rows>
+				<row>
+					<cell style="font-weight: bold; color:#636363;">Numero :</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<!-- Usa la tabla de caracteres de los EmoGi: http://www.unicode.org/emoji/charts/full-emoji-list.html -->
+				          		<label value="&#x1F194;"></label>
+				          </div>
+				        </div>
+				        <hlayout valign="middle">
+					        <space />
+					        <label id="numero" sclass="font-weight-bold"/>
+				        </hlayout>
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell style="font-weight: bold; color:#636363;">Nombre :</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<label value="&#x1F464;"></label>
+				          </div>
+				        </div>
+				        <textbox id="nombre" width="200px"/>
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell style="font-weight: bold; color:#636363;">Email :</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<label value="&#x1F4EC;"></label>
+				          </div>
+				        </div>
+				        <textbox id="email"  width="200px"/>
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell style="font-weight: bold; color:#636363;">Fecha Nacimiento :</cell>
+					<cell>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text">
+				          		<label value="&#x1F4C5;"></label>
+				          </div>
+				        </div>
+				        <datebox id="fecNacimiento"  width="200px"/>
+				      </div>
+					 </cell>
+				</row>
+				<row>
+					<cell style="font-weight: bold; color:#636363;">Pais :</cell>
+					<cell>
+						<listbox id="pais" mold="select" width="200px">
+							<listitem>
+								<listcell label="Ecuador" />
+							</listitem>
+							<listitem>
+								<listcell label="Colombia" />
+							</listitem>
+							<listitem>
+								<listcell label="Peru" />
+							</listitem>
+							<listitem>
+								<listcell label="Venezuela" />
+							</listitem>
+						</listbox>
+					</cell>
+				</row>
+				<row>
+					<cell style="font-weight: bold; color:#636363;">Biografia :</cell>
+					<cell><textbox id="biografia" multiline="true" hflex="1" height="200px" /></cell>
+				</row>
+			</rows>
+		</grid>
+		
+		<!-- Los iconos listados con iconSclass son de: http://fontawesome.io/icons/ -->
+		<hlayout>
+			<button id="grabar" label="Grabar" iconSclass="z-icon-save" sclass="btn btn-outline-success"/>
+			<button id="recargar" label="Recargar" iconSclass="z-icon-refresh" sclass="btn btn-outline-primary"/>
+		</hlayout>
+	</vlayout>
+</window>
