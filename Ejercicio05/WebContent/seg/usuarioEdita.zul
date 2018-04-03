@@ -1,0 +1,67 @@
+<?page title="Edición de Usuario" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Edición de Usuario" 
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ec.gob.salinas.demo.control.seg.Edita')"
+		border="normal" 
+		width="500px">
+
+	<vlayout>
+		<!-- Objetos de datos -->
+		
+		<grid>
+			<columns>
+				<column label="" width="200px" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<label>Nombre del Usuario:</label>
+					<textbox value="@bind(vm.usuario.nombreUsuario)"></textbox>
+				</row>
+				<row>
+					<label>Password:</label>
+					<textbox value="@bind(vm.clave)" type="password" />
+				</row>
+				<row>
+					<label>Password confirmación:</label>
+					<textbox value="@bind(vm.claveConfirmacion)" type="password" />
+				</row>
+			</rows>
+		</grid>
+		
+		<!-- Privilegios -->
+		<hlayout>
+			<combobox model="@load(vm.privilegios)" selectedItem="@bind(vm.privilegio)">
+				<template name="model" var="p">
+					<comboitem label="@load(p.nombreRol)" value="@load(p)" />
+				</template>
+			</combobox>
+			<button label="Agregar" onClick="@command('agregaRol')"/>
+		</hlayout>
+		<listbox model="@load(vm.usuario.interUsuarioRols)"
+				 selectedItem="@bind(vm.privilegioSeleccionado)" 
+				 height="200px" hflex="1">
+			<listhead>
+				<listheader label="Privilegio" />
+				<listheader label="" />
+			</listhead>
+			<template name="model" var="p">
+				<listitem value="@load(p)">
+					<listcell label="@load(p.rol.nombreRol)" />
+					<listcell>
+						<a iconSclass="z-icon-trash" onClick="@command('eliminaRol')" />
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+		
+		<!-- Botones de acción -->
+		<hlayout>
+			<button onClick="@command('aceptar')">Aceptar</button>
+			<button onClick="@command('salir')">Salir</button>
+		</hlayout>
+		
+	</vlayout>
+</window>
+</zk>

@@ -1,0 +1,6 @@
+<?page title="Formulario de operaciones del Usuario 1" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Formulario de operaciones del Usuario 1" border="normal">
+Este es el formulario de operaciones del Usuario 1
+</window>
+</zk>
