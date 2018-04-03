@@ -44,6 +44,8 @@ public class PersonaControl extends SelectorComposer {
 	@Wire 
 	Textbox biografia;
 	
+	Persona persona;
+	
 	public void doAfterCompose(Component comp) throws Exception{
 		super.doAfterCompose(comp);
 		ListModelList<String> countryModel = new ListModelList<String>(gatPaises());
@@ -52,6 +54,10 @@ public class PersonaControl extends SelectorComposer {
 		cargaDatosFormulario(1);
 		
 	}
+	
+	public Persona getPersona() {
+		return persona;
+	}
 
 	/**
 	 * Carga los datos en el formulario de una persona dada.
@@ -59,15 +65,15 @@ public class PersonaControl extends SelectorComposer {
 	 */
 	private void cargaDatosFormulario(int idPersona) {
 
-		Persona persona = getDatosPersona();
+		persona = getDatosPersona();
 		
-		numero.setValue(Integer.toString(persona.getId()));
-		nombre.setValue(persona.getNombre());
-		email.setValue(persona.getEmail());
-		fecNacimiento.setValue(persona.getFechaNacimiento());
-		biografia.setValue(persona.getBiografia());
-
-		((ListModelList)pais.getModel()).addToSelection(persona.getPais());
+//		numero.setValue(Integer.toString(persona.getId()));
+//		nombre.setValue(persona.getNombre());
+//		email.setValue(persona.getEmail());
+//		fecNacimiento.setValue(persona.getFechaNacimiento());
+//		biografia.setValue(persona.getBiografia());
+//
+//		((ListModelList)pais.getModel()).addToSelection(persona.getPais());
 		
 	}
 

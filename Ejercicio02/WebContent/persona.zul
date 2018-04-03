@@ -1,4 +1,7 @@
-<window border="none" vflex="min" hflex="1" 
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+
+<window id="wnPersona" 
+        border="none" vflex="min" hflex="1" 
         apply="com.demo.control.PersonaControl">
 	<caption src="/img/user.png" height="20px" style="font-weight: bold; font-size: medium; color: #636363;" label="Persona"/>
 	<vlayout>
@@ -34,7 +37,7 @@
 				          		<label value="&#x1F464;"></label>
 				          </div>
 				        </div>
-				        <textbox id="nombre" width="200px"/>
+				        <textbox id="nombre" width="200px" value="@{wnPersona$composer.persona.nombre}"/>
 				      </div>
 					 </cell>
 				</row>
