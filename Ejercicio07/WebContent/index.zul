@@ -1,0 +1,26 @@
+<?page title="Auto Generated index.zul"?>
+<window id="wnIndex" 
+        border="none"
+        height="100%" width="100%"
+        position="parent"
+        mode="embedded"
+	    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')"
+        apply="org.zkoss.bind.BindComposer" >
+
+	<vlayout hflex="1" vflex="1">
+		
+		<hlayout valign="middle">
+			<label value="Nombre del usuario:" />
+			<textbox value="@bind(vm.nombreUsuario)" />
+		</hlayout>
+		<hlayout>
+			<button label="Descargar en PDF" onClick="@command('ejecutaReportePDF')"/>
+			<button label="Descargar en XLS" onClick="@command('ejecutaReporteXLS')"/>
+			<button label="Visualizar" onClick="@command('visualizaReporte')"/>
+		</hlayout>
+		
+		<iframe content="@load(vm.reporte)" hflex="1" vflex="1" />
+
+	</vlayout>
+
+</window>

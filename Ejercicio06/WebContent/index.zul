@@ -1,0 +1,24 @@
+<?page title="Auto Generated index.zul"?>
+<window id="wnIndex" 
+        border="none"
+        height="100%" width="100%"
+        position="parent"
+        mode="embedded"
+	    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')"
+        apply="org.zkoss.bind.BindComposer" >
+
+	<vlayout>
+	
+		<image content="@load(vm.imagen)" />
+		<hlayout>
+			<button upload="true" onUpload="@command('subir')">
+				Subir una imagen!
+			</button>
+			<button onClick="@command('descargar')">
+				Descargar...
+			</button>
+		</hlayout>
+
+	</vlayout>
+
+</window>
