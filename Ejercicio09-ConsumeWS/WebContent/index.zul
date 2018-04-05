@@ -1,0 +1,110 @@
+<?page title="Ejemplo de Consumo de un Servicio Web"?>
+<window title="Ejemplo de consumo de un servicio web"
+        border="none"
+        height="100%" width="100%"
+        position="parent"
+        mode="embedded"
+	    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')"
+        apply="org.zkoss.bind.BindComposer" >
+
+	<vlayout hflex="1" vflex="1">
+		<hlayout hflex="1">
+			<label value="Url Base:" />
+			<textbox value="@bind(vm.url)" hflex="1"/>			
+		</hlayout>
+		<hlayout hflex="1">
+			<label value="Usuario:" />
+			<textbox value="@bind(vm.usuarioAutenticacion.nombreUsuario)" />			
+		</hlayout>
+		<hlayout hflex="1">
+			<label value="Clave:" />
+			<textbox value="@bind(vm.usuarioAutenticacion.password)" />			
+		</hlayout>
+		<button label="Autenticar!" onClick="@command('autenticar')" />
+		<hlayout hflex="1">
+			<label value="Token:" />
+			<label value="@load(vm.token)" />			
+		</hlayout>
+		<tabbox hflex="1" vflex="1">
+			<tabs>
+				<tab label="Buscar un usuario" disabled="@load(vm.token eq null)"/>
+				<tab label="Buscar varios usuarios" disabled="@load(vm.token eq null)"/>
+				<tab label="Crear un usuario" disabled="@load(vm.token eq null)"/>
+				<tab label="Actualizar un usuario" disabled="@load(vm.token eq null)"/>
+				<tab label="Borrar" />
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<vlayout>
+						<hlayout>
+							<label value="Id:" />
+							<textbox value="@bind(vm.idUsuario)" />
+							<button label="Buscar!" onClick="@command('buscarUsuario')"/>
+						</hlayout>
+						<hlayout>
+							<label value="Id:" />
+							<label value="@load(vm.usuario.id)" />
+						</hlayout>
+						<hlayout>
+							<label value="Usuario:" />
+							<label value="@load(vm.usuario.nombreUsuario)" />
+						</hlayout>
+					</vlayout>
+				</tabpanel>
+				<tabpanel>
+					<vlayout hflex="1" vflex="1">
+						<button label="Buscar usuarios!" onClick="@command('buscarUsuarios')" />
+						<listbox model="@load(vm.usuarios)" hflex="1" vflex="1">
+							<listhead>
+								<listheader label="Id" sort="auto" width="100px"/>
+								<listheader label="Usuario" sort="auto" />
+							</listhead>
+							<template name="model" var="u">
+								<listitem>
+									<listcell label="@load(u.id)" />
+									<listcell label="@load(u.nombreUsuario)" />
+								</listitem>
+							</template>
+						</listbox>
+					</vlayout>
+				</tabpanel>
+				<tabpanel>
+					<vlayout>
+						<hlayout>
+							<label value="Usuario:" />
+							<textbox value="@bind(vm.usuarioCrear.nombreUsuario)" />			
+						</hlayout>
+						<hlayout>
+							<label value="Clave:" />
+							<textbox value="@bind(vm.usuarioCrear.password)" />			
+						</hlayout>
+						<button label="Crear!" onClick="@command('crearUsuario')" />
+					</vlayout>
+				</tabpanel>
+				<tabpanel>
+					<vlayout>
+						<hlayout>
+							<label value="Usuario:" />
+							<textbox value="@bind(vm.usuario.nombreUsuario)" />			
+						</hlayout>
+						<hlayout>
+							<label value="Clave:" />
+							<textbox value="@bind(vm.usuario.password)" />			
+						</hlayout>
+						<button label="Actualizar!" onClick="@command('actualizarUsuario')" />
+					</vlayout>
+				</tabpanel>
+				<tabpanel>
+					<vlayout>
+						<hlayout>
+							<label value="Id:" />
+							<textbox value="@bind(vm.idUsuario)" />
+							<button label="Borrar!" onClick="@command('borrarUsuario')"/>
+						</hlayout>
+					</vlayout>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</vlayout>
+
+</window>

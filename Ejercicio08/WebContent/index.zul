@@ -1,0 +1,40 @@
+<?page title="${labels.app.$}"?>
+<window id="wnIndex" 
+		title="${labels.app.titulo}"
+        border="none"
+        height="100%" width="100%"
+        position="parent"
+        mode="embedded"
+	    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')"
+        apply="org.zkoss.bind.BindComposer" >
+
+	<vlayout hflex="1" vflex="1">
+		<hlayout>
+			<label value="${labels.app.seleccionaLenguaje}"/>
+			<combobox onSelect="@command('seleccionaLenguaje')" selectedItem="@bind(vm.lenguajeActual)">
+				<comboitem label="(Defecto)" value="" />
+				<comboitem label="Español de Ecuador" value="es_EC" />
+				<comboitem label="Inglés" value="en" />
+			</combobox>
+		</hlayout>
+
+		<hlayout>
+			<label value="${labels.app.lenguajeActual}"/>
+			<label value="@load(vm.lenguajeActual)"/>
+		</hlayout>
+		
+		<hlayout valign="middle">
+			<label value="${labels.app.nombreUsuario}" />
+			<textbox value="@bind(vm.nombreUsuario)" />
+		</hlayout>
+		<hlayout>
+			<button label="${labels.app.descargarPDF}" onClick="@command('ejecutaReportePDF')"/>
+			<button label="${labels.app.descargarXLS}" onClick="@command('ejecutaReporteXLS')"/>
+			<button label="${labels.app.visualizar}" onClick="@command('visualizaReporte')"/>
+		</hlayout>
+		
+		<iframe content="@load(vm.reporte)" hflex="1" vflex="1" />
+
+	</vlayout>
+
+</window>
