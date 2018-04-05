@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="usuarios" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e8274fb-a383-4731-bd9f-c3a96879e903">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL - Local"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="P_NOMBRE_USUARIO" class="java.lang.String"/>
+	<parameter name="P_NOMBRE_INSTITUCION" class="java.lang.String"/>
+	<parameter name="P_PATH_LOGO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT u.nombre_usuario, r.nombre_rol 
+FROM seguridad.usuario AS u INNER JOIN seguridad.inter_usuario_rol AS iur ON iur.id_usuario = u.id 
+                            INNER JOIN seguridad.rol AS r ON iur.id_rol = r.id 
+WHERE u.estado IS NULL
+  AND u.nombre_usuario = $P{P_NOMBRE_USUARIO}]]>
+	</queryString>
+	<field name="nombre_usuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre_usuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="nombre_rol" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre_rol"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rol"/>
+	</field>
+	<variable name="nombre_rol1" class="java.lang.Integer" resetType="Group" resetGroup="g_usuario" calculation="Count">
+		<variableExpression><![CDATA[$F{nombre_rol}]]></variableExpression>
+	</variable>
+	<group name="g_usuario">
+		<groupExpression><![CDATA[$F{nombre_usuario}]]></groupExpression>
+		<groupHeader>
+			<band height="29">
+				<textField>
+					<reportElement x="50" y="6" width="260" height="15" uuid="1d81bd33-72df-450f-8e97-267a3fdb8c96"/>
+					<textFieldExpression><![CDATA[$F{nombre_usuario}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="6" width="50" height="15" uuid="6a88bd09-198a-455e-8b5c-629090496bbf"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Usuario:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="25">
+				<staticText>
+					<reportElement x="0" y="0" width="124" height="14" uuid="9dde46f0-a1e5-45f6-8188-9a8c3161bdb6"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cantidad de Privilegios:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="127" y="1" width="100" height="12" uuid="28364a25-78cd-48ef-9efb-442fad1b0dee"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$V{nombre_rol1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="59" splitType="Stretch">
+			<image onErrorType="Blank">
+				<reportElement x="0" y="4" width="50" height="50" uuid="6da0cf1b-f7de-437a-9a85-fcece09e876c"/>
+				<imageExpression><![CDATA[$P{P_PATH_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="180" y="34" width="200" height="16" uuid="f8a91080-ed3a-4c67-83b9-9e73f2bfbc40"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLES DEL USUARIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="4" width="400" height="20" uuid="7449720c-591e-4570-b0a6-cf37782d2a0a"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NOMBRE_INSTITUCION}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="14" uuid="71de0cb2-f6f2-484a-88a1-3d2725bd6ab8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Privilegio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="0" width="200" height="14" uuid="8a096287-00f1-4177-b516-96171d971fdc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87dc65b0-49f3-4eec-bde0-b1c54f47a089"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre_rol}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
