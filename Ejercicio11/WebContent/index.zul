@@ -1,0 +1,23 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?page title="Ejemplo de Grafico Estadistico"?>
+<?script src="/js/jquery.min.js" ?>
+<?script src="/js/Chart.min.js" ?>
+<window title="Ejemplo de Grafico Estadistico"
+        border="none"
+        height="100%" width="100%"
+        position="parent"
+        mode="embedded"
+	    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')"
+        apply="org.zkoss.bind.BindComposer" >
+
+	<vlayout hflex="1" vflex="1">
+		<button label="Actualizar!" onClick="@command('actualizaGrafico')"/>
+		<div width="500px" vflex="1"  >
+			<html id="htGrafico" 
+				  content="@load(vm.htmlGrafico)" 
+				  hflex="1" vflex="1" />
+		</div>
+	</vlayout>
+
+
+</window>

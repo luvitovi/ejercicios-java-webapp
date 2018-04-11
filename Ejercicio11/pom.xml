@@ -1,8 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>Ejercicio09</groupId>
-  <artifactId>Ejercicio09</artifactId>
+  <groupId>Ejercicio11</groupId>
+  <artifactId>Ejercicio11</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <packaging>war</packaging>
   
  	<properties>
@@ -53,7 +54,7 @@
 		    <artifactId>zkplus</artifactId>
 		    <version>${zk.version}</version>
 		</dependency>
-		
+
 		<!-- Fin de dependencias ZK -->
 
 	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -155,6 +156,20 @@
 		</dependency>
 		
 	<!-- Fin de dependencias para Web Services -->
+	
+	<!-- Dependencias para mapas -->
+
+	<!-- https://mvnrepository.com/artifact/org.zkoss.zkforge/gmapsz -->
+	<dependency>
+	    <groupId>org.zkoss.zkforge</groupId>
+	    <artifactId>gmapsz</artifactId>
+	    <version>3.0.4</version>
+	</dependency>
+	
+	<!-- Fin de dependencias para mapas -->
+	
+	
+	<!-- Fin de dependencias para graficos estadisticoas -->
 
 </dependencies>
 
