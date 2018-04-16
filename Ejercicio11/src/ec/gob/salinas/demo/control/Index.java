@@ -28,11 +28,12 @@ public class Index {
 	public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
 		Selectors.wireComponents(view, this, false);
 		
+		// Obtenemos los datos a graficar
 		saldosMensuales = getSaldos();
 
 		grafico = new GraficoEstadistico(saldosMensuales, 
 										"Saldos Mensuales", "mes", "saldo", 
-										GraficoEstadistico.BAR_CHART);
+										GraficoEstadistico.PIE_CHART);
 		htmlGrafico = grafico.getCodigoHtml();
 		grafico.actualizaGrafico();
 
