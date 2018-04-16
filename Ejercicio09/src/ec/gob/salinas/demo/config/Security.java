@@ -64,6 +64,8 @@ public class Security extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 				.antMatchers(HttpMethod.POST, LOGIN_URL) // Solo permite acceso al login
 					.permitAll()
+				.antMatchers(HttpMethod.GET, "/rentas/emision/**")
+					.hasRole("ROLE_RENTAS")
 				.anyRequest() // Todo el resto de rutas están bloqueadas a espera de la autenticacion.
 					.authenticated()
 			.and()

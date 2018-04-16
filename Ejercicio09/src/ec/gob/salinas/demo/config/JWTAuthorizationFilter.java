@@ -2,17 +2,24 @@ package ec.gob.salinas.demo.config;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+import ec.gob.salinas.demo.modelo.pojo.InterUsuarioRol;
+import ec.gob.salinas.demo.modelo.pojo.Usuario;
+import ec.gob.salinas.demo.repos.UsuarioRepo;
 import io.jsonwebtoken.Jwts;
 
 /**
@@ -21,6 +28,9 @@ import io.jsonwebtoken.Jwts;
  *
  */
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
+	
+	@Autowired
+	private UsuarioRepo usuarioRepo;
 	
 	public JWTAuthorizationFilter(AuthenticationManager authManager) {
 		super(authManager);
@@ -75,12 +85,26 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
 				// Aqui es donde se debe recuperar el token desde la base para obtener el resto
 				// de privilegios o determinar si no ha sido "desactivado".
-
-				return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+				
+				Usuario usuario = usuarioRepo.getUsuarioPorNombre(user);
+				
+				return new UsernamePasswordAuthenticationToken(usuario.getNombreUsuario(), null, getGrantedAuthorities(usuario));
 			}
 			return null;
 		}
 		return null;
 	}
-	
+
+    private List<GrantedAuthority> getGrantedAuthorities(Usuario usuario){
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        
+        if (usuario.getInterUsuarioRols() != null) {
+            for(InterUsuarioRol privilegio : usuario.getInterUsuarioRols()){
+                authorities.add(new SimpleGrantedAuthority(privilegio.getRol().getNombreRol()));
+            }
+        }
+        
+        return authorities;
+    }
+
 }
