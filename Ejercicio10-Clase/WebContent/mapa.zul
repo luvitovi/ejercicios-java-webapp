@@ -1,0 +1,27 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<script type="text/javascript" 
+    		content="zk.googleAPIkey='AIzaSyDlzw2oyl1QeNM8fOEIsDB3X_73Z18PnOw'" />
+
+	<window title="new page title" border="normal">
+	
+	    <gmaps version="3.26" 
+	    		   width="520px" height="400px" 
+	    		   protocol="https" 
+	    		   showZoomCtrl="true" 
+	    		   lat="-2.214" lng="-80.955" 
+	    		   zoom="17">
+	        <ginfo open="true"
+	            content="Item de informacion 1" 
+	            lat="-2.214" lng="-80.955"/>
+	        <gmarker lat="-2.214" lng="-80.955"
+	            content="Marcador 1" open="true" 
+	            draggingEnabled="true" />
+	        <gmarker lat="-2.210" lng="-80.90"
+	            content="Marcador 2" open="true" 
+	            draggingEnabled="true" 
+	            />
+	    </gmaps>
+	    	
+	</window>
+</zk>

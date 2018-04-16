@@ -1,0 +1,17 @@
+<?page title="${labels.app.$}"?>
+<window id="wnIndex" 
+		title="${labels.app.titulo}"
+        border="none"
+        height="100%" width="100%"
+        position="parent"
+        mode="embedded"
+	    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')"
+        apply="org.zkoss.bind.BindComposer" >
+
+	<script type="text/javascript" 
+	    		content="zk.googleAPIkey='AIzaSyDlzw2oyl1QeNM8fOEIsDB3X_73Z18PnOw'" />
+    
+    <gmaps id="gmap" hflex="1" vflex="1"/>
+      
+	
+</window>
