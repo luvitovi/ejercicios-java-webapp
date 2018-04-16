@@ -1,0 +1,55 @@
+<?page title="Formulario de Lista" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Formulario de Lista" 
+			border="normal" 
+			apply="org.zkoss.bind.BindComposer" 
+			viewModel="@id('vm') @init('ec.gob.salinas.demo.control.seg.Lista')"
+			hflex="1" vflex="1">
+
+		<vlayout>
+			
+			<!-- Barra de botones -->
+			<hlayout>
+				<button onClick="@command('nuevo')">Nuevo</button>
+				<button onClick="@command('editar')">Editar</button>
+				<button onClick="@command('eliminar')">Borrar</button>
+			</hlayout>
+			
+			<!-- Herramienta de Busqueda -->
+			<hlayout>
+				<textbox value="@bind(vm.textoBuscar)" constraint="no empty" 
+						 onOK="@command('buscar')"></textbox>
+				<button onClick="@command('buscar')">Buscar</button>
+			</hlayout>
+			
+			<!-- Lista de Resultados -->
+			<listbox model="@load(vm.usuarios)" 
+			         selectedItem="@bind(vm.usuarioSeleccionado)" 
+			         mold="paging" 
+			         pageSize="5" 
+			         checkmark="true"
+			         multiple="true"
+			         pagingPosition="bottom">
+				<listhead>
+					<listheader label="Id" sort="auto(id)" width="100px"/>
+					<listheader label="Nombre" sort="auto(nombreUsuario)" />
+					<listheader label="Fecha de Ingreso" sort="auto" />
+					<listheader />
+				</listhead>
+				<template name="model" var="u">
+					<listitem>
+						<listcell label="@load(u.id)" />
+						<listcell label="@load(u.nombreUsuario)" />
+						<listcell label="@load(u.fechaIngresa) @converter('formatedDate', format='yyyy/MM/dd')" />
+						<listcell>
+							<a iconSclass="z-icon-trash" onClick="@command('eliminar')" />
+							<a iconSclass="z-icon-edit" />
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+
+		</vlayout>
+
+	</window>
+</zk>

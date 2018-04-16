@@ -1,0 +1,61 @@
+<?page title="Menú Principal"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png"?>
+<?script src="/js/bootstrap.min.js" ?>
+<?link rel="stylesheet" href="/css/bootstrap.min.css" ?>
+<zk>
+	<borderlayout apply="org.zkoss.bind.BindComposer" 
+			      viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Index')" >
+		<!-- Cabecera y menu -->
+		<north border="none">
+			<hlayout hflex="1" valign="middle">
+				<image src="/img/logo.png" height="45px" />
+				<vlayout>
+					<label value="Aplicación de Prueba - 2" sclass="h4"/>
+					<label value="EcuDesarrollo" sclass="h6 font-weight-light"/>
+				</vlayout>
+				<menubar id="mnMenu" sclass="border-top-0 border-bottom-0"/>
+				<div align="right" hflex="1">
+					<image src="/img/logo-person.jpg" height="45px"/>
+					<button label="Salir" onClick="@command('logout')" />
+				</div>
+			</hlayout>
+		</north>
+		<!-- Area de trabajo -->
+		<center border="none" >
+		
+			<tabbox id="tbAreaTrabajo" hflex="1" vflex="1">
+				<tabs>
+					<tab label="Inicio" closable="false"/>
+				</tabs>
+				<tabpanels hflex="1" vflex="1">
+					<tabpanel>
+						<div sclass="d-flex align-items-center flex-column justify-content-center h-100">
+							<image src="/img/logo.png" height="200px" />
+							<separator />
+							<hlayout>
+								<label value="Usuario conectado:" sclass="font-weight-bold"/>
+								<label value="@load(vm.usuario.nombreUsuario)"/>
+							</hlayout>
+							<hlayout>
+								<label value="Privilegios:" sclass="font-weight-bold"/>
+								<label value="@load(vm.privilegios)"/>
+							</hlayout>
+							<hlayout>
+								<label value="Es Administrador" sclass="font-weight-bold"/>
+								<label value="@load(vm.administrator?'SI':'NO')"/>
+							</hlayout>
+						</div>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+
+		</center>
+		<!-- Barra de estado -->
+		<south border="none">
+			<div align="center">
+				<label value="Versión 1.00" sclass="text-muted font-weight-light"/>
+			</div>
+		</south>
+	
+	</borderlayout>
+</zk>

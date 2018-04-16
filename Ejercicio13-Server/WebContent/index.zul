@@ -1,0 +1,6 @@
+<?page title="Plataforma de Servicios Web de Prueba" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Plataforma de Servicios Web de Prueba" border="normal">
+	Plataforma de Servicios Web de Prueba
+</window>
+</zk>

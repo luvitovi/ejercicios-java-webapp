@@ -1,0 +1,65 @@
+<?page title="Control de acceso" contentType="text/html;charset=UTF-8"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png"?>
+<?script src="/js/bootstrap.min.js" ?>
+<?link rel="stylesheet" href="/css/bootstrap.min.css" ?>
+<zk>
+
+
+
+	<window id="wnLogin" 
+	        border="none"
+	        height="100%" width="100%"
+	        position="parent"
+	        mode="embedded"
+		    viewModel="@id('vm') @init('ec.gob.salinas.demo.control.Login')"
+	        apply="org.zkoss.bind.BindComposer" >
+
+		<window border="rounded"
+		        width="320px"
+		        position="center"
+		        mode="overlapped">
+		        
+		    <div align="center">
+		    		<image src="/img/logo.png" width="150px"/>
+		    </div>
+	        
+			<div align="center" sclass="p-3">
+				<html:form action="login" method="POST" xmlns:html="native">
+					<vlayout hflex="1">
+						<div align="center" hflex="1">
+							<label value="Control de Acceso" sclass="h5 font-weight-light" />
+						</div>
+						<hlayout>
+							<textbox id="u"
+							         name="username" 
+								     placeholder="Usuario..." 
+								     sclass="form-control"
+								     width="220px" />
+						</hlayout>
+						<hlayout>
+							<textbox id="p"
+							         name="password" 
+								     type="password"
+								     sclass="form-control"
+								     placeholder="Password..." 
+								     width="220px" />
+						</hlayout>
+						<div sclass="pt-1">
+							<button label="Ingresar!" 
+								    type="submit"
+								    iconSclass="z-icon-sign-in"
+								    zclass="btn btn-outline-primary"
+								    width="150px"/>
+						</div>
+			 			<div sclass="alert alert-danger" align="center" if="${not empty param.login_error}" >
+			 				<label value="Error, credenciales no válidas." />
+			 			</div>
+					</vlayout>
+				</html:form>
+			</div>
+			
+		</window>
+	
+	</window>
+
+</zk>

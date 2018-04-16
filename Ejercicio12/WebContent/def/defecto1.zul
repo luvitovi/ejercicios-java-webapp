@@ -1,0 +1,6 @@
+<?page title="Formulario opr defecto 1." contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Formulario opr defecto 1." border="normal">
+Formulario opr defecto 1
+</window>
+</zk>
