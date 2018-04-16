@@ -1,0 +1,35 @@
+<?page title="Recuperación de Contraseña" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Recuperación de Contraseña" 
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ec.gob.salinas.demo.control.RecuperaClave')"
+		border="normal" 
+		width="500px">
+
+	<vlayout>
+		<div sclass="alert alert-primary">
+			<label value="Para recuperar su contraseña le enviaremos un correo a su email con un enlace que le permitirá el cambio de la misma. Este enlace tendrá una validez de 5 minutos." />
+		</div>
+		<!-- Objetos de datos -->
+		<grid>
+			<columns>
+				<column label="" width="200px" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<label>Nombre del Usuario:</label>
+					<textbox value="@bind(vm.nombreUsuario)"></textbox>
+				</row>
+			</rows>
+		</grid>
+		
+		<!-- Botones de acción -->
+		<hlayout>
+			<button onClick="@command('aceptar')">Aceptar</button>
+			<button onClick="@command('salir')">Salir</button>
+		</hlayout>
+		
+	</vlayout>
+</window>
+</zk>
